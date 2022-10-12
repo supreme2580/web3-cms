@@ -1,0 +1,133 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "postId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "nameOfPost",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "postDescription",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "thumbnailUrl",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "postContent",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "date",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "NewPostCreated",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "nameOfPost",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "postDescription",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "thumbnailUrl",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "postContent",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "date",
+        "type": "string"
+      }
+    ],
+    "name": "createNewPost",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "name": "idToNewPost",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "postId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "string",
+        "name": "nameOfPost",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "postDescription",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "thumbnailUrl",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "postContent",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "date",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

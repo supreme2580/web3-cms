@@ -1,0 +1,10 @@
+type PostEntity @entity {
+  id: ID!
+  postId: Bytes!
+  nameOfPost: String
+  postDescription: String
+  thumbnailUrl: String
+  postContent: String
+  postDate: String
+  owner: Bytes!
+}
