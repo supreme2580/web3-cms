@@ -3,6 +3,7 @@ import { useRef, useState } from "react"
 import dynamic from "next/dynamic"
 import { useRecoilState } from "recoil"
 import { name, description, thumbnail as postThumbnail, thumbnailName, thumbnailType } from "../atoms/contentAtom"
+import Footer from "./Footer"
 const CreationPlace = dynamic(() => import("./CreationPlace"), {
     ssr: false
 })
@@ -76,6 +77,7 @@ export default function ContentCreator() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
