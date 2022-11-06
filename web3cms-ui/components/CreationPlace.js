@@ -19,7 +19,7 @@ export default function CreationPlace() {
                 placeholder={"Write something awesome..."}
                 modules={modules}
                 formats={formats}
-                className="h-32"
+                className="h-64"
             />
         </div>
     )
