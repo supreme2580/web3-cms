@@ -66,11 +66,11 @@ export default function Publish() {
                         }, 10000);
                     }
                     else {
-                        document.getElementById("publish").innerHTML = "Publish"
+                        document.getElementById("publish").innerHTML = "Publish Post"
                     }
                 }
             } catch (error) {
-                document.getElementById("publish").innerHTML = "Publish"
+                document.getElementById("publish").innerHTML = "Publish Post"
                 console.log(error)
             }
         }
