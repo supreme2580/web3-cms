@@ -1,8 +1,14 @@
 import { gql } from "@apollo/client";
 import Head from "next/head";
 import client from "../../apollo-client"
+import Contact from "../../components/Contact";
+import dynamic from "next/dynamic";
+import 'react-quill/dist/quill.bubble.css';
 
-export default function Preview({ post }) {
+const ReactQuill = dynamic(import('react-quill'), { ssr: false })
+
+export default function Preview({ post, id }) {
+    console.log(id)
     return (
         <div className="flex justify-center">
             <Head>
@@ -16,8 +22,15 @@ export default function Preview({ post }) {
                 }
                 <h1 className="text-2xl font-bold">{post[0]?.nameOfPost}</h1>
                 <p className="font-semibold">Posted on {post[0]?.postDate}</p>
-                <div dangerouslySetInnerHTML={{__html: post[0]?.postContent}}></div>
+                <div>
+                    <ReactQuill
+                        value={post[0]?.postContent}
+                        readOnly={true}
+                        theme="bubble"
+                    />
+                </div>
             </div>
+            <Contact />
         </div>
     )
 }
@@ -68,7 +81,8 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
-            post
+            post,
+            id
         },
         revalidate: false
     }
