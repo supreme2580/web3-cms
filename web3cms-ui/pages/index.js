@@ -13,9 +13,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <div className='flex'>
+      <div className='fixed flex w-full'>
         <ContentList />
-        <ContentCreator />
+        <div className='w-full h-full max-h-screen overflow-y-scroll'>
+          <ContentCreator />
+        </div>
       </div>
       <Publish />
     </div>
