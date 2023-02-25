@@ -2,7 +2,7 @@ import abiJson from "./Web3Cms.json"
 import { ethers } from "ethers"
 
 function connectContract() {
-    const contractAddress = "0x5622000FecBCD4F228e55281e02d5c5d26CCf93B"
+    const contractAddress = "0xc01C9CC1489E17bC33d9d2514724aDD7C30A529C"
     const contractAbi = abiJson.abi
     let web3cmsContract
     try {

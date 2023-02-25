@@ -1,4 +1,4 @@
-type PostEntity @entity {
+type BlogPostEntity @entity {
   id: ID!
   postId: Bytes!
   nameOfPost: String
@@ -7,4 +7,32 @@ type PostEntity @entity {
   postContent: String
   postDate: String
   owner: Bytes!
+}
+
+type AudioPostEntity @entity {
+  id: ID!
+  postId: Bytes!
+  nameOfPost: String
+  postDescription: String
+  thumbnailUrl: String
+  postContent: String
+  postDate: String
+  owner: Bytes!
+  audioTitle: String!
+  audioUrl: String!
+  audioThumbnail: String!
+}
+
+type VlogPostEntity @entity {
+  id: ID!
+  postId: Bytes!
+  nameOfPost: String
+  postDescription: String
+  thumbnailUrl: String
+  postContent: String
+  postDate: String
+  owner: Bytes!
+  videoTitle: String!
+  videoUrl: String!
+  videoThumbnail: String!
 }

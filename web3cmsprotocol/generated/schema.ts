@@ -11,7 +11,7 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class PostEntity extends Entity {
+export class BlogPostEntity extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -19,18 +19,18 @@ export class PostEntity extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save PostEntity entity without an ID");
+    assert(id != null, "Cannot save BlogPostEntity entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type PostEntity must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type BlogPostEntity must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("PostEntity", id.toString(), this);
+      store.set("BlogPostEntity", id.toString(), this);
     }
   }
 
-  static load(id: string): PostEntity | null {
-    return changetype<PostEntity | null>(store.get("PostEntity", id));
+  static load(id: string): BlogPostEntity | null {
+    return changetype<BlogPostEntity | null>(store.get("BlogPostEntity", id));
   }
 
   get id(): string {
@@ -143,5 +143,329 @@ export class PostEntity extends Entity {
 
   set owner(value: Bytes) {
     this.set("owner", Value.fromBytes(value));
+  }
+}
+
+export class AudioPostEntity extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save AudioPostEntity entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type AudioPostEntity must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("AudioPostEntity", id.toString(), this);
+    }
+  }
+
+  static load(id: string): AudioPostEntity | null {
+    return changetype<AudioPostEntity | null>(store.get("AudioPostEntity", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get postId(): Bytes {
+    let value = this.get("postId");
+    return value!.toBytes();
+  }
+
+  set postId(value: Bytes) {
+    this.set("postId", Value.fromBytes(value));
+  }
+
+  get nameOfPost(): string | null {
+    let value = this.get("nameOfPost");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set nameOfPost(value: string | null) {
+    if (!value) {
+      this.unset("nameOfPost");
+    } else {
+      this.set("nameOfPost", Value.fromString(<string>value));
+    }
+  }
+
+  get postDescription(): string | null {
+    let value = this.get("postDescription");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set postDescription(value: string | null) {
+    if (!value) {
+      this.unset("postDescription");
+    } else {
+      this.set("postDescription", Value.fromString(<string>value));
+    }
+  }
+
+  get thumbnailUrl(): string | null {
+    let value = this.get("thumbnailUrl");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set thumbnailUrl(value: string | null) {
+    if (!value) {
+      this.unset("thumbnailUrl");
+    } else {
+      this.set("thumbnailUrl", Value.fromString(<string>value));
+    }
+  }
+
+  get postContent(): string | null {
+    let value = this.get("postContent");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set postContent(value: string | null) {
+    if (!value) {
+      this.unset("postContent");
+    } else {
+      this.set("postContent", Value.fromString(<string>value));
+    }
+  }
+
+  get postDate(): string | null {
+    let value = this.get("postDate");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set postDate(value: string | null) {
+    if (!value) {
+      this.unset("postDate");
+    } else {
+      this.set("postDate", Value.fromString(<string>value));
+    }
+  }
+
+  get owner(): Bytes {
+    let value = this.get("owner");
+    return value!.toBytes();
+  }
+
+  set owner(value: Bytes) {
+    this.set("owner", Value.fromBytes(value));
+  }
+
+  get audioTitle(): string {
+    let value = this.get("audioTitle");
+    return value!.toString();
+  }
+
+  set audioTitle(value: string) {
+    this.set("audioTitle", Value.fromString(value));
+  }
+
+  get audioUrl(): string {
+    let value = this.get("audioUrl");
+    return value!.toString();
+  }
+
+  set audioUrl(value: string) {
+    this.set("audioUrl", Value.fromString(value));
+  }
+
+  get audioThumbnail(): string {
+    let value = this.get("audioThumbnail");
+    return value!.toString();
+  }
+
+  set audioThumbnail(value: string) {
+    this.set("audioThumbnail", Value.fromString(value));
+  }
+}
+
+export class VlogPostEntity extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save VlogPostEntity entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type VlogPostEntity must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("VlogPostEntity", id.toString(), this);
+    }
+  }
+
+  static load(id: string): VlogPostEntity | null {
+    return changetype<VlogPostEntity | null>(store.get("VlogPostEntity", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get postId(): Bytes {
+    let value = this.get("postId");
+    return value!.toBytes();
+  }
+
+  set postId(value: Bytes) {
+    this.set("postId", Value.fromBytes(value));
+  }
+
+  get nameOfPost(): string | null {
+    let value = this.get("nameOfPost");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set nameOfPost(value: string | null) {
+    if (!value) {
+      this.unset("nameOfPost");
+    } else {
+      this.set("nameOfPost", Value.fromString(<string>value));
+    }
+  }
+
+  get postDescription(): string | null {
+    let value = this.get("postDescription");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set postDescription(value: string | null) {
+    if (!value) {
+      this.unset("postDescription");
+    } else {
+      this.set("postDescription", Value.fromString(<string>value));
+    }
+  }
+
+  get thumbnailUrl(): string | null {
+    let value = this.get("thumbnailUrl");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set thumbnailUrl(value: string | null) {
+    if (!value) {
+      this.unset("thumbnailUrl");
+    } else {
+      this.set("thumbnailUrl", Value.fromString(<string>value));
+    }
+  }
+
+  get postContent(): string | null {
+    let value = this.get("postContent");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set postContent(value: string | null) {
+    if (!value) {
+      this.unset("postContent");
+    } else {
+      this.set("postContent", Value.fromString(<string>value));
+    }
+  }
+
+  get postDate(): string | null {
+    let value = this.get("postDate");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set postDate(value: string | null) {
+    if (!value) {
+      this.unset("postDate");
+    } else {
+      this.set("postDate", Value.fromString(<string>value));
+    }
+  }
+
+  get owner(): Bytes {
+    let value = this.get("owner");
+    return value!.toBytes();
+  }
+
+  set owner(value: Bytes) {
+    this.set("owner", Value.fromBytes(value));
+  }
+
+  get videoTitle(): string {
+    let value = this.get("videoTitle");
+    return value!.toString();
+  }
+
+  set videoTitle(value: string) {
+    this.set("videoTitle", Value.fromString(value));
+  }
+
+  get videoUrl(): string {
+    let value = this.get("videoUrl");
+    return value!.toString();
+  }
+
+  set videoUrl(value: string) {
+    this.set("videoUrl", Value.fromString(value));
+  }
+
+  get videoThumbnail(): string {
+    let value = this.get("videoThumbnail");
+    return value!.toString();
+  }
+
+  set videoThumbnail(value: string) {
+    this.set("videoThumbnail", Value.fromString(value));
   }
 }

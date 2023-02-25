@@ -40,12 +40,146 @@
       },
       {
         "indexed": false,
+        "internalType": "string",
+        "name": "audioTitle",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "audioUrl",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "audioThumbnail",
+        "type": "string"
+      },
+      {
+        "indexed": false,
         "internalType": "address",
         "name": "owner",
         "type": "address"
       }
     ],
-    "name": "NewPostCreated",
+    "name": "NewAudioPostCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "postId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "nameOfPost",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "postDescription",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "thumbnailUrl",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "postContent",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "date",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "NewBlogPostCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "postId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "nameOfPost",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "postDescription",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "thumbnailUrl",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "postContent",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "date",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "videoTitle",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "videoUrl",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "videoThumbnail",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "NewVlogPostCreated",
     "type": "event"
   },
   {
@@ -76,7 +210,7 @@
         "type": "string"
       }
     ],
-    "name": "createNewPost",
+    "name": "createNewBlogPost",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -89,7 +223,7 @@
         "type": "bytes32"
       }
     ],
-    "name": "idToNewPost",
+    "name": "idToNewAudioPost",
     "outputs": [
       {
         "internalType": "bytes32",
@@ -119,6 +253,129 @@
       {
         "internalType": "string",
         "name": "date",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "audioTitle",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "audioUrl",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "audioThumbnail",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "name": "idToNewBlogPost",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "postId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "string",
+        "name": "nameOfPost",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "postDescription",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "thumbnailUrl",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "postContent",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "date",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "name": "idToNewVlogPost",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "nameOfPost",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "postDescription",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "thumbnailUrl",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "postContent",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "date",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "videoTitle",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "videoUrl",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "videoThumbnail",
         "type": "string"
       },
       {

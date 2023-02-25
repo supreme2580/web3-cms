@@ -23,11 +23,12 @@ export default function Publish() {
             let cid = await uploadThumbnail()
             let url = "https://"+cid+".ipfs.w3s.link/"+thumbNailName
             if (cid) {
+                console.log(cid)
                 try {
                     let date = new Date()
                     if (web3cmsContract) {
                         document.getElementById("publish").innerHTML = "Publishing..."
-                        const txn = await web3cmsContract.createNewPost(contentName, contentDescription, url, cmsContent, date.toLocaleDateString())
+                        const txn = await web3cmsContract.createNewBlogPost(contentName, contentDescription, url, cmsContent, date.toLocaleDateString())
                         let wait = txn.wait()
                         if (wait) {
                             setTimeout(() => {
@@ -55,7 +56,7 @@ export default function Publish() {
                 let date = new Date()
                 if (web3cmsContract) {
                     document.getElementById("publish").innerHTML = "Publishing..."
-                    const txn = await web3cmsContract.createNewPost(contentName, contentDescription, "", cmsContent, date.toLocaleDateString())
+                    const txn = await web3cmsContract.createNewBlogPost(contentName, contentDescription, "", cmsContent, date.toLocaleDateString())
                     let wait = txn.wait()
                     if (wait) {
                         setTimeout(() => {

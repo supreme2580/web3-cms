@@ -1,3 +1,14 @@
 web3cms-contract/node_modules
 web3cms-ui/node_modules
 web3cmsprotocol/node_modules
+node_modules
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+
+#Hardhat files
+cache
+artifacts
+

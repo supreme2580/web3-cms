@@ -10,16 +10,70 @@ import {
   BigInt
 } from "@graphprotocol/graph-ts";
 
-export class NewPostCreated extends ethereum.Event {
-  get params(): NewPostCreated__Params {
-    return new NewPostCreated__Params(this);
+export class NewAudioPostCreated extends ethereum.Event {
+  get params(): NewAudioPostCreated__Params {
+    return new NewAudioPostCreated__Params(this);
   }
 }
 
-export class NewPostCreated__Params {
-  _event: NewPostCreated;
+export class NewAudioPostCreated__Params {
+  _event: NewAudioPostCreated;
 
-  constructor(event: NewPostCreated) {
+  constructor(event: NewAudioPostCreated) {
+    this._event = event;
+  }
+
+  get postId(): Bytes {
+    return this._event.parameters[0].value.toBytes();
+  }
+
+  get nameOfPost(): string {
+    return this._event.parameters[1].value.toString();
+  }
+
+  get postDescription(): string {
+    return this._event.parameters[2].value.toString();
+  }
+
+  get thumbnailUrl(): string {
+    return this._event.parameters[3].value.toString();
+  }
+
+  get postContent(): string {
+    return this._event.parameters[4].value.toString();
+  }
+
+  get date(): string {
+    return this._event.parameters[5].value.toString();
+  }
+
+  get audioTitle(): string {
+    return this._event.parameters[6].value.toString();
+  }
+
+  get audioUrl(): string {
+    return this._event.parameters[7].value.toString();
+  }
+
+  get audioThumbnail(): string {
+    return this._event.parameters[8].value.toString();
+  }
+
+  get owner(): Address {
+    return this._event.parameters[9].value.toAddress();
+  }
+}
+
+export class NewBlogPostCreated extends ethereum.Event {
+  get params(): NewBlogPostCreated__Params {
+    return new NewBlogPostCreated__Params(this);
+  }
+}
+
+export class NewBlogPostCreated__Params {
+  _event: NewBlogPostCreated;
+
+  constructor(event: NewBlogPostCreated) {
     this._event = event;
   }
 
@@ -52,7 +106,153 @@ export class NewPostCreated__Params {
   }
 }
 
-export class Web3Cms__idToNewPostResult {
+export class NewVlogPostCreated extends ethereum.Event {
+  get params(): NewVlogPostCreated__Params {
+    return new NewVlogPostCreated__Params(this);
+  }
+}
+
+export class NewVlogPostCreated__Params {
+  _event: NewVlogPostCreated;
+
+  constructor(event: NewVlogPostCreated) {
+    this._event = event;
+  }
+
+  get postId(): Bytes {
+    return this._event.parameters[0].value.toBytes();
+  }
+
+  get nameOfPost(): string {
+    return this._event.parameters[1].value.toString();
+  }
+
+  get postDescription(): string {
+    return this._event.parameters[2].value.toString();
+  }
+
+  get thumbnailUrl(): string {
+    return this._event.parameters[3].value.toString();
+  }
+
+  get postContent(): string {
+    return this._event.parameters[4].value.toString();
+  }
+
+  get date(): string {
+    return this._event.parameters[5].value.toString();
+  }
+
+  get videoTitle(): string {
+    return this._event.parameters[6].value.toString();
+  }
+
+  get videoUrl(): string {
+    return this._event.parameters[7].value.toString();
+  }
+
+  get videoThumbnail(): string {
+    return this._event.parameters[8].value.toString();
+  }
+
+  get owner(): Address {
+    return this._event.parameters[9].value.toAddress();
+  }
+}
+
+export class Web3Cms__idToNewAudioPostResult {
+  value0: Bytes;
+  value1: string;
+  value2: string;
+  value3: string;
+  value4: string;
+  value5: string;
+  value6: string;
+  value7: string;
+  value8: string;
+  value9: Address;
+
+  constructor(
+    value0: Bytes,
+    value1: string,
+    value2: string,
+    value3: string,
+    value4: string,
+    value5: string,
+    value6: string,
+    value7: string,
+    value8: string,
+    value9: Address
+  ) {
+    this.value0 = value0;
+    this.value1 = value1;
+    this.value2 = value2;
+    this.value3 = value3;
+    this.value4 = value4;
+    this.value5 = value5;
+    this.value6 = value6;
+    this.value7 = value7;
+    this.value8 = value8;
+    this.value9 = value9;
+  }
+
+  toMap(): TypedMap<string, ethereum.Value> {
+    let map = new TypedMap<string, ethereum.Value>();
+    map.set("value0", ethereum.Value.fromFixedBytes(this.value0));
+    map.set("value1", ethereum.Value.fromString(this.value1));
+    map.set("value2", ethereum.Value.fromString(this.value2));
+    map.set("value3", ethereum.Value.fromString(this.value3));
+    map.set("value4", ethereum.Value.fromString(this.value4));
+    map.set("value5", ethereum.Value.fromString(this.value5));
+    map.set("value6", ethereum.Value.fromString(this.value6));
+    map.set("value7", ethereum.Value.fromString(this.value7));
+    map.set("value8", ethereum.Value.fromString(this.value8));
+    map.set("value9", ethereum.Value.fromAddress(this.value9));
+    return map;
+  }
+
+  getPostId(): Bytes {
+    return this.value0;
+  }
+
+  getNameOfPost(): string {
+    return this.value1;
+  }
+
+  getPostDescription(): string {
+    return this.value2;
+  }
+
+  getThumbnailUrl(): string {
+    return this.value3;
+  }
+
+  getPostContent(): string {
+    return this.value4;
+  }
+
+  getDate(): string {
+    return this.value5;
+  }
+
+  getAudioTitle(): string {
+    return this.value6;
+  }
+
+  getAudioUrl(): string {
+    return this.value7;
+  }
+
+  getAudioThumbnail(): string {
+    return this.value8;
+  }
+
+  getOwner(): Address {
+    return this.value9;
+  }
+}
+
+export class Web3Cms__idToNewBlogPostResult {
   value0: Bytes;
   value1: string;
   value2: string;
@@ -120,19 +320,152 @@ export class Web3Cms__idToNewPostResult {
   }
 }
 
+export class Web3Cms__idToNewVlogPostResult {
+  value0: string;
+  value1: string;
+  value2: string;
+  value3: string;
+  value4: string;
+  value5: string;
+  value6: string;
+  value7: string;
+  value8: Address;
+
+  constructor(
+    value0: string,
+    value1: string,
+    value2: string,
+    value3: string,
+    value4: string,
+    value5: string,
+    value6: string,
+    value7: string,
+    value8: Address
+  ) {
+    this.value0 = value0;
+    this.value1 = value1;
+    this.value2 = value2;
+    this.value3 = value3;
+    this.value4 = value4;
+    this.value5 = value5;
+    this.value6 = value6;
+    this.value7 = value7;
+    this.value8 = value8;
+  }
+
+  toMap(): TypedMap<string, ethereum.Value> {
+    let map = new TypedMap<string, ethereum.Value>();
+    map.set("value0", ethereum.Value.fromString(this.value0));
+    map.set("value1", ethereum.Value.fromString(this.value1));
+    map.set("value2", ethereum.Value.fromString(this.value2));
+    map.set("value3", ethereum.Value.fromString(this.value3));
+    map.set("value4", ethereum.Value.fromString(this.value4));
+    map.set("value5", ethereum.Value.fromString(this.value5));
+    map.set("value6", ethereum.Value.fromString(this.value6));
+    map.set("value7", ethereum.Value.fromString(this.value7));
+    map.set("value8", ethereum.Value.fromAddress(this.value8));
+    return map;
+  }
+
+  getNameOfPost(): string {
+    return this.value0;
+  }
+
+  getPostDescription(): string {
+    return this.value1;
+  }
+
+  getThumbnailUrl(): string {
+    return this.value2;
+  }
+
+  getPostContent(): string {
+    return this.value3;
+  }
+
+  getDate(): string {
+    return this.value4;
+  }
+
+  getVideoTitle(): string {
+    return this.value5;
+  }
+
+  getVideoUrl(): string {
+    return this.value6;
+  }
+
+  getVideoThumbnail(): string {
+    return this.value7;
+  }
+
+  getOwner(): Address {
+    return this.value8;
+  }
+}
+
 export class Web3Cms extends ethereum.SmartContract {
   static bind(address: Address): Web3Cms {
     return new Web3Cms("Web3Cms", address);
   }
 
-  idToNewPost(param0: Bytes): Web3Cms__idToNewPostResult {
+  idToNewAudioPost(param0: Bytes): Web3Cms__idToNewAudioPostResult {
     let result = super.call(
-      "idToNewPost",
-      "idToNewPost(bytes32):(bytes32,string,string,string,string,string,address)",
+      "idToNewAudioPost",
+      "idToNewAudioPost(bytes32):(bytes32,string,string,string,string,string,string,string,string,address)",
       [ethereum.Value.fromFixedBytes(param0)]
     );
 
-    return new Web3Cms__idToNewPostResult(
+    return new Web3Cms__idToNewAudioPostResult(
+      result[0].toBytes(),
+      result[1].toString(),
+      result[2].toString(),
+      result[3].toString(),
+      result[4].toString(),
+      result[5].toString(),
+      result[6].toString(),
+      result[7].toString(),
+      result[8].toString(),
+      result[9].toAddress()
+    );
+  }
+
+  try_idToNewAudioPost(
+    param0: Bytes
+  ): ethereum.CallResult<Web3Cms__idToNewAudioPostResult> {
+    let result = super.tryCall(
+      "idToNewAudioPost",
+      "idToNewAudioPost(bytes32):(bytes32,string,string,string,string,string,string,string,string,address)",
+      [ethereum.Value.fromFixedBytes(param0)]
+    );
+    if (result.reverted) {
+      return new ethereum.CallResult();
+    }
+    let value = result.value;
+    return ethereum.CallResult.fromValue(
+      new Web3Cms__idToNewAudioPostResult(
+        value[0].toBytes(),
+        value[1].toString(),
+        value[2].toString(),
+        value[3].toString(),
+        value[4].toString(),
+        value[5].toString(),
+        value[6].toString(),
+        value[7].toString(),
+        value[8].toString(),
+        value[9].toAddress()
+      )
+    );
+  }
+
+  idToNewBlogPost(param0: Bytes): Web3Cms__idToNewBlogPostResult {
+    let result = super.call(
+      "idToNewBlogPost",
+      "idToNewBlogPost(bytes32):(bytes32,string,string,string,string,string,address)",
+      [ethereum.Value.fromFixedBytes(param0)]
+    );
+
+    return new Web3Cms__idToNewBlogPostResult(
       result[0].toBytes(),
       result[1].toString(),
       result[2].toString(),
@@ -143,12 +476,12 @@ export class Web3Cms extends ethereum.SmartContract {
     );
   }
 
-  try_idToNewPost(
+  try_idToNewBlogPost(
     param0: Bytes
-  ): ethereum.CallResult<Web3Cms__idToNewPostResult> {
+  ): ethereum.CallResult<Web3Cms__idToNewBlogPostResult> {
     let result = super.tryCall(
-      "idToNewPost",
-      "idToNewPost(bytes32):(bytes32,string,string,string,string,string,address)",
+      "idToNewBlogPost",
+      "idToNewBlogPost(bytes32):(bytes32,string,string,string,string,string,address)",
       [ethereum.Value.fromFixedBytes(param0)]
     );
     if (result.reverted) {
@@ -156,7 +489,7 @@ export class Web3Cms extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      new Web3Cms__idToNewPostResult(
+      new Web3Cms__idToNewBlogPostResult(
         value[0].toBytes(),
         value[1].toString(),
         value[2].toString(),
@@ -167,22 +500,69 @@ export class Web3Cms extends ethereum.SmartContract {
       )
     );
   }
-}
 
-export class CreateNewPostCall extends ethereum.Call {
-  get inputs(): CreateNewPostCall__Inputs {
-    return new CreateNewPostCall__Inputs(this);
+  idToNewVlogPost(param0: Bytes): Web3Cms__idToNewVlogPostResult {
+    let result = super.call(
+      "idToNewVlogPost",
+      "idToNewVlogPost(bytes32):(string,string,string,string,string,string,string,string,address)",
+      [ethereum.Value.fromFixedBytes(param0)]
+    );
+
+    return new Web3Cms__idToNewVlogPostResult(
+      result[0].toString(),
+      result[1].toString(),
+      result[2].toString(),
+      result[3].toString(),
+      result[4].toString(),
+      result[5].toString(),
+      result[6].toString(),
+      result[7].toString(),
+      result[8].toAddress()
+    );
   }
 
-  get outputs(): CreateNewPostCall__Outputs {
-    return new CreateNewPostCall__Outputs(this);
+  try_idToNewVlogPost(
+    param0: Bytes
+  ): ethereum.CallResult<Web3Cms__idToNewVlogPostResult> {
+    let result = super.tryCall(
+      "idToNewVlogPost",
+      "idToNewVlogPost(bytes32):(string,string,string,string,string,string,string,string,address)",
+      [ethereum.Value.fromFixedBytes(param0)]
+    );
+    if (result.reverted) {
+      return new ethereum.CallResult();
+    }
+    let value = result.value;
+    return ethereum.CallResult.fromValue(
+      new Web3Cms__idToNewVlogPostResult(
+        value[0].toString(),
+        value[1].toString(),
+        value[2].toString(),
+        value[3].toString(),
+        value[4].toString(),
+        value[5].toString(),
+        value[6].toString(),
+        value[7].toString(),
+        value[8].toAddress()
+      )
+    );
   }
 }
 
-export class CreateNewPostCall__Inputs {
-  _call: CreateNewPostCall;
+export class CreateNewBlogPostCall extends ethereum.Call {
+  get inputs(): CreateNewBlogPostCall__Inputs {
+    return new CreateNewBlogPostCall__Inputs(this);
+  }
 
-  constructor(call: CreateNewPostCall) {
+  get outputs(): CreateNewBlogPostCall__Outputs {
+    return new CreateNewBlogPostCall__Outputs(this);
+  }
+}
+
+export class CreateNewBlogPostCall__Inputs {
+  _call: CreateNewBlogPostCall;
+
+  constructor(call: CreateNewBlogPostCall) {
     this._call = call;
   }
 
@@ -207,10 +587,10 @@ export class CreateNewPostCall__Inputs {
   }
 }
 
-export class CreateNewPostCall__Outputs {
-  _call: CreateNewPostCall;
+export class CreateNewBlogPostCall__Outputs {
+  _call: CreateNewBlogPostCall;
 
-  constructor(call: CreateNewPostCall) {
+  constructor(call: CreateNewBlogPostCall) {
     this._call = call;
   }
 }

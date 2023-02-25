@@ -6,19 +6,25 @@ dataSources:
     name: Web3Cms
     network: mumbai
     source:
-      address: "0x5622000FecBCD4F228e55281e02d5c5d26CCf93B"
+      address: "0xc01C9CC1489E17bC33d9d2514724aDD7C30A529C"
       abi: Web3Cms
-      startBlock: 28527602
+      startBlock: 32372235
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
-        - PostEntity
+        - BlogPostEntity
+        - AudioPostEntity
+        - VlogPostEntity
       abis:
         - name: Web3Cms
           file: ./abis/Web3Cms.json
       eventHandlers:
-        - event: NewPostCreated(bytes32,string,string,string,string,string,address)
-          handler: handleNewPostCreated
+        - event: NewBlogPostCreated(bytes32,string,string,string,string,string,address)
+          handler: handleNewBlogPostCreated
+        - event: NewAudioPostCreated(bytes32,string,string,string,string,string,string,string,string,address)
+          handler: handleNewAudioPostCreated
+        - event: NewVlogPostCreated(bytes32,string,string,string,string,string,string,string,string,address)
+          handler: handleNewVlogPostCreated
       file: ./src/web-3-cms.ts

@@ -1,5 +1,4 @@
-require("@nomiclabs/hardhat-waffle"); //new update from hardhat requires to import 'hardhat-toolbox'
-require("@nomicfoundation/hardhat-toolbox")
+require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 
 module.exports = {
